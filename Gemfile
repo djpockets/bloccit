@@ -33,3 +33,6 @@ source 'https://rubygems.org'
 gem 'bootstrap-sass'
 # Password encryption
 gem 'bcrypt'
+# gravatar
+gem 'gravtastic'
+
