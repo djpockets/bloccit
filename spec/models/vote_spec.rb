@@ -21,4 +21,15 @@ RSpec.describe Vote, type: :model do
       vote.save!
     end
   end
+
+  describe "#create_vote" do
+    it "votes post on creation" do
+      expect(post.up_votes).to eq(1)
+    end
+    it "#create_vote called on post creation" do
+      post = topic.posts.new(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user)
+      expect(post).to receive(:create_vote)
+      post.save
+    end
+  end
 end
