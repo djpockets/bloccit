@@ -33,3 +33,5 @@ source 'https://rubygems.org'
 gem 'bootstrap-sass'
 # Password encryption
 gem 'bcrypt'
+# password storage figaro
+gem 'figaro', '1.0'
