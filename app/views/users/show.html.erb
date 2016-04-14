@@ -20,21 +20,43 @@
     </div>
   </div>
 
-  <% if @user.posts != 0 %>
-      <h2>Posts</h2>        <!--display user's posts and comments using partials.-->
-      <%= render @user.posts %>
-  <% else %>
+<div class="row">
+  <div class="col-md-10">
+    <% if current_user.posts.count == 0 %>
+        <h2 class="media-body">
+          <%= @user.name %><%= " has not submitted any posts yet." %>
+        </h2>
+    <% else %>
+        <h2>Posts</h2>        <!--display user's posts and comments using partials.-->
+          <%= render @user.posts %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <br />
+    <% if current_user.comments.count == 0 %>
+        <h2 class="media-body">
+          <%= @user.name %><%= " has not submitted any comments yet." %>
+        </h2>
+    <% else %>
+        <h2>Comments</h2>
+        <%= render @user.comments %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <% if current_user.favorites.count == 0 %>
       <h2 class="media-body">
-        <%= @user.name %><%= " has not submitted any posts yet." %>
+        <%= @user.name %><%= " doesn't have any facorites yet." %>
       </h2>
-  <% end %>
-  <% if @user.comments != 0 %>
-      <h2>Comments</h2>
-      <%= render @user.comments %>
-  <% else %>
-      <h2 class="media-body">
-        <%= @user.name %><%= " has not submitted any comments yet." %>
-      </h2>
-  <% end %>
+    <% else %>
+      <h2>Favorites</h2>
+        <%= render @user.favorites %>
+    <% end %>
+  </div>
+</div>
+
 <% end %>
 

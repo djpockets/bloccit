@@ -4,8 +4,8 @@ RSpec.describe Label, type: :model do
   let(:topic) { create(:topic) }
   let(:user) { create(:user) }
   let(:post) { create(:post) }
-  let(:label) { create(:label) }
-  let(:label2) { create(:label) }
+  let(:label) { create(:label, name: 'label1') }
+  let(:label2) { create(:label, name: 'label2') }
 
   it { is_expected.to have_many :labelings }
   it { is_expected.to have_many(:topics).through(:labelings) }
