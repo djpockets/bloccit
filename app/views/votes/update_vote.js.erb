@@ -1,8 +1,0 @@
-$('.up-vote').html("<%=escape_javascript(link_to " ", post_up_vote_path(@post), class: 'glyphicon glyphicon-chevron-up', method: :post, remote: true) %>");
-$('.js-post-up-vote').html("<%= pluralize(@post.up_votes, 'up vote') %>");
-$('.js-post-points').html("<%= pluralize(@post.points, 'point') %>");
-
-
-$('.down-vote').html("<%=escape_javascript(link_to " ", post_down_vote_path(@post), class: 'glyphicon glyphicon-chevron-down', method: :post, remote: true) %>");
-$('.js-post-down-vote').html("<%= pluralize(@post.down_votes, 'down vote') %>");
-$('.js-post-points').html("<%= pluralize(@post.points, 'point') %>");
