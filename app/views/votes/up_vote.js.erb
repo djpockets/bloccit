@@ -1,3 +1,3 @@
-$('.posts').html("<%=escape_javascript(render partial: 'votes/voter', locals: { post: @post }) %>");
+$('.up-vote').html("<%=escape_javascript(link_to " ", post_up_vote_path(@post), class: 'glyphicon glyphicon-chevron-up', method: :post, remote: true) %>");
 $('.js-post-up-vote').html("<%= pluralize(@post.up_votes, 'up vote') %>");
 $('.js-post-points').html("<%= pluralize(@post.points, 'point') %>");
