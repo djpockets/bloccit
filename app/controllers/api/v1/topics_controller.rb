@@ -4,7 +4,7 @@ class Api::V1::TopicsController < Api::V1::BaseController
 
   def index
     topics = Topic.all
-    render json: topics, status: 200
+    render json: topics, include: 'posts', status: 200
   end
 
   def show
@@ -27,7 +27,7 @@ class Api::V1::TopicsController < Api::V1::BaseController
 
     if topic.valid?
       topic.save!
-      render json: topic, status: 201
+      render json: topic, status: 200
     else
       render json: {error: "Topic is invalid", status: 400}, status: 400
     end
