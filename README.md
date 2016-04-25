@@ -1,32 +1,78 @@
-## Bloccit: a Reddit replica to teach the fundamentals of web development and Rails.
-
-Made with my mentor at [Bloc](http://bloc.io)
 
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Bloccit
 
-Things you may want to cover:
+ a Reddit replica to teach the fundamentals of web development and Rails.
 
-* Ruby version
+This app powers Bloccit at https://mysterious-mountain-92576.herokuapp.com/
 
-* System dependencies
+## Getting Started
 
-* Configuration
+## Software requirements
 
-* Database creation
+- Rails 4.2.3
 
-* Database initialization
+- Ruby 2.2.2p95
 
-* How to run the test suite
+- PostgreSQL 9.3.x or higher
 
-* Services (job queues, cache servers, search engines, etc.)
+## Navigate to the Rails application
 
-* Deployment instructions
+```
+$ cd /Users/OMen136325/bloc/bloccit
+```
 
-* ...
+## Set configuration files
 
+```
+$ cp config/database.yml.template config/database.yml
+$ cp config/initializers/mail.rb.template config/initializers/mail.rb
+```
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Note:  You may need to edit the above files as necessary for your system.
+
+## Create the database
+
+ ```
+ $ pgstart
+ $ rake db:create
+ ```
+
+## Migrating and seeding the database
+
+```
+$ rake db:migrate
+$ rake db:seed
+```
+
+## Starting the local server
+
+```
+$ rails server
+
+   or
+
+$ rails s
+```
+
+## Production Deployment
+
+  ```
+  $ git push heroku master
+  $ heroku run rake db:migrate
+  ```
+
+## Support
+
+Bug reports and feature requests can be filed with the rest for the Ruby on Rails project here:
+
+* {File Bug Reports and Features}[https://github.com/mendozaomar85/bloccit/issues]
+
+## License
+
+Bloccit is released under the <LICENSE-NAME> license.
+
+## Copyright
+
+copyright:: (c) Copyright 2016 Bloccit. All Rights Reserved.
