@@ -31,10 +31,10 @@ class Api::V1::UsersController < Api::V1::BaseController
     else
       render json: { error: "User is invalid", status: 400 }, status: 400
     end
-
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :role)
   end

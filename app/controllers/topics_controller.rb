@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :require_sign_in, except: [:index, :show]
   before_action :authorize_user, except: [:index, :show]
+
   def index
     @topics = Topic.visible_to(current_user)
   end
@@ -46,9 +47,9 @@ class TopicsController < ApplicationController
        flash.now[:alert] = "Error saving topic. Please try again."
        render :edit
      end
-   end
+  end
 
-   def destroy
+  def destroy
      @topic = Topic.find(params[:id])
 
      if @topic.destroy
@@ -58,7 +59,7 @@ class TopicsController < ApplicationController
        flash.now[:alert] = "There was an error deleting the topic."
        render :show
      end
-   end
+  end
 
   private
 

@@ -3,7 +3,6 @@ class Api::V1::PostsController < Api::V1::BaseController
   before_action :authorize_user, except: [:index, :show]
 
   def update
-    topic = Topic.find(params[:topic_id])
     post = Post.find(params[:id])
 
     if post.update_attributes(post_params)
@@ -11,14 +10,12 @@ class Api::V1::PostsController < Api::V1::BaseController
     else
       render json: {error: "Post update failed", status: 400},status: 400
     end
-
   end
 
   def create
     topic = Topic.find(params[:topic_id])
     post = topic.posts.build(post_params)
     post.user = @current_user
-
 
     if post.valid?
        post.save!
@@ -29,7 +26,6 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def destroy
-    topic = Topic.find(params[:topic_id])
     post = Post.find(params[:id])
 
     if post.destroy
@@ -41,15 +37,8 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :body)
   end
-
-
-
-
-
-
 end
-
-

@@ -1,4 +1,3 @@
-
 <% if favorite = current_user.favorite_for(post) %>
     <!-- link to unfavor post -->
     <%= link_to [post, favorite], class: 'btn btn-danger', method: :delete do %>

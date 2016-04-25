@@ -41,13 +41,11 @@ class Api::V1::TopicsController < Api::V1::BaseController
     else
       render json: {error: "Topic destroy failed", status: 400}, status: 400
     end
-
   end
 
   private
+
   def topic_params
     params.require(:topic).permit(:name, :description, :public)
   end
-
-
 end
