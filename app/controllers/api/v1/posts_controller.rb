@@ -3,7 +3,8 @@ class Api::V1::PostsController < Api::V1::BaseController
   before_action :authorize_user, except: [:index, :show]
 
   def update
-    post = Post.find(params[:id])
+    topic = Topic.find(params[:topic_id])
+    post = topic.posts.find(params[:id])
 
     if post.update_attributes(post_params)
       render json: post, status: 200
@@ -26,7 +27,8 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def destroy
-    post = Post.find(params[:id])
+    topic = Topic.find(params[:topic_id])
+    post = topic.posts.find(params[:id])
 
     if post.destroy
       render json: {message: "Post destroyed", status: 200}, status: 200
